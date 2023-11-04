@@ -58,12 +58,13 @@ class MainActivity : AppCompatActivity() {
         while (true) {
             val number = random.nextInt(60)
             numbers.add(number + 1)
-
             if (numbers.size == qtd) {
                 break
             }
         }
-        txtResult.text = numbers.joinToString(" - ")
+        val SortedNumbers = numbers.sorted()
+
+        txtResult.text = SortedNumbers.joinToString(" - ")
 
         preference.edit().apply {
             putString("resultID", txtResult.text.toString())
